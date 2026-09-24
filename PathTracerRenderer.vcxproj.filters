@@ -1,0 +1,168 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="源文件">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="头文件">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="资源文件">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="thirdparty">
+      <UniqueIdentifier>{e491d165-1e94-42de-a74e-8d4f59cdbd07}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty\gl3w">
+      <UniqueIdentifier>{4f8a8088-7b85-41f1-b867-dcebddc066e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty\RadeonRays">
+      <UniqueIdentifier>{b42ba886-422c-47ee-9641-62d02614fe5d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="thirdparty\imgui">
+      <UniqueIdentifier>{c2d582b4-802c-48a8-b259-55fd32f70641}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="thirdparty\gl3w\GL\gl3w.c">
+      <Filter>thirdparty\gl3w</Filter>
+    </ClCompile>
+    <ClCompile Include="thirdparty\RadeonRays\bbox.cpp">
+      <Filter>thirdparty\RadeonRays</Filter>
+    </ClCompile>
+    <ClCompile Include="thirdparty\RadeonRays\bvh.cpp">
+      <Filter>thirdparty\RadeonRays</Filter>
+    </ClCompile>
+    <ClCompile Include="thirdparty\RadeonRays\bvh_translator.cpp">
+      <Filter>thirdparty\RadeonRays</Filter>
+    </ClCompile>
+    <ClCompile Include="thirdparty\RadeonRays\split_bvh.cpp">
+      <Filter>thirdparty\RadeonRays</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\PTCamera.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\PTEnvironmentMap.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\PTMesh.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\PTProgram.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\PTQuad.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\PTRenderer.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\PTScene.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\PTShader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\core\PTTexture.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\loaders\GLTFLoader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\loaders\Loader.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Main.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="thirdparty\imgui\imgui.cpp"><Filter>thirdparty\imgui</Filter></ClCompile>
+    <ClCompile Include="thirdparty\imgui\imgui_draw.cpp"><Filter>thirdparty\imgui</Filter></ClCompile>
+    <ClCompile Include="thirdparty\imgui\imgui_tables.cpp"><Filter>thirdparty\imgui</Filter></ClCompile>
+    <ClCompile Include="thirdparty\imgui\imgui_widgets.cpp"><Filter>thirdparty\imgui</Filter></ClCompile>
+    <ClCompile Include="thirdparty\imgui\backends\imgui_impl_sdl2.cpp"><Filter>thirdparty\imgui</Filter></ClCompile>
+    <ClCompile Include="thirdparty\imgui\backends\imgui_impl_opengl3.cpp"><Filter>thirdparty\imgui</Filter></ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="thirdparty\gl3w\GL\gl3w.h">
+      <Filter>thirdparty\gl3w</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\gl3w\GL\glcorearb.h">
+      <Filter>thirdparty\gl3w</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\RadeonRays\bbox.h">
+      <Filter>thirdparty\RadeonRays</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\RadeonRays\bvh.h">
+      <Filter>thirdparty\RadeonRays</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\RadeonRays\bvh_translator.h">
+      <Filter>thirdparty\RadeonRays</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\RadeonRays\split_bvh.h">
+      <Filter>thirdparty\RadeonRays</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\PTCamera.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\PTConfig.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\PTEnvironmentMap.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\PTMaterial.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\PTMesh.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\PTProgram.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\PTQuad.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\PTRenderer.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\PTScene.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\PTShader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\PTShaderIncludes.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\core\PTTexture.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\loaders\GLTFLoader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\loaders\Loader.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\Mat4.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\MathUtils.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\Vec2.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\Vec3.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="src\math\Vec4.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="thirdparty\imgui\imgui.h"><Filter>thirdparty\imgui</Filter></ClInclude>
+    <ClInclude Include="thirdparty\imgui\backends\imgui_impl_sdl2.h"><Filter>thirdparty\imgui</Filter></ClInclude>
+    <ClInclude Include="thirdparty\imgui\backends\imgui_impl_opengl3.h"><Filter>thirdparty\imgui</Filter></ClInclude>
+  </ItemGroup>
+</Project>
