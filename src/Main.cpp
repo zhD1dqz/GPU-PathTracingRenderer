@@ -759,14 +759,21 @@ void DrawRightPanel(float top, float bottom, const ImVec2& displaySize)
 
             ImGui::Spacing();
             ImGui::SeparatorText("STABLE PREVIEW");
-            bool motionAware = renderOptions.temporalMode == 3;
-            if (ImGui::Checkbox("Motion-aware reconstruction", &motionAware))
+            const char* previewMethods[] = {
+                "Motion-aware", "TAA (fixed weight)", "Off (fresh samples)"
+            };
+            const int previewModes[] = { 3, 1, 0 };
+            int previewMethod = renderOptions.temporalMode == 3 ? 0 :
+                                (renderOptions.temporalMode == 1 ? 1 : 2);
+            if (ImGui::Combo("Preview method", &previewMethod, previewMethods, 3))
             {
-                renderOptions.useAdvancedTAA = motionAware;
-                renderOptions.temporalMode = motionAware ? 3 : 0;
+                renderOptions.temporalMode = previewModes[previewMethod];
+                renderOptions.useAdvancedTAA = renderOptions.temporalMode == 3;
                 ApplyOptionsFromUI(false, true);
-                SetUIStatus(motionAware ? "Stable preview enabled" : "Stable preview disabled");
+                SetUIStatus(std::string("Preview method: ") + previewMethods[previewMethod]);
             }
+            const bool motionAware = renderOptions.temporalMode == 3;
+            ImGui::BeginDisabled(!motionAware);
             float noiseReductionPercent = renderOptions.spatialFilterStrength * 100.0f;
             if (ImGui::SliderFloat("Noise reduction", &noiseReductionPercent,
                                    0.0f, 100.0f, "%.0f%%"))
@@ -774,6 +781,8 @@ void DrawRightPanel(float top, float bottom, const ImVec2& displaySize)
                 renderOptions.spatialFilterStrength = noiseReductionPercent / 100.0f;
                 ApplyOptionsFromUI(false, true);
             }
+            ImGui::EndDisabled();
+            ImGui::BeginDisabled(renderOptions.temporalMode == 0);
             float historyStrengthPercent = renderOptions.historyWeight * 100.0f;
             if (ImGui::SliderFloat("History strength", &historyStrengthPercent,
                                    0.0f, 98.0f, "%.0f%%"))
@@ -781,6 +790,8 @@ void DrawRightPanel(float top, float bottom, const ImVec2& displaySize)
                 renderOptions.historyWeight = historyStrengthPercent / 100.0f;
                 ApplyOptionsFromUI(false, true);
             }
+            ImGui::EndDisabled();
+            ImGui::BeginDisabled(!motionAware);
             float ghostingProtectionPercent = userInterface.ghostingProtection * 100.0f;
             if (ImGui::SliderFloat("Ghosting protection", &ghostingProtectionPercent,
                                    0.0f, 100.0f, "%.0f%%"))
@@ -792,6 +803,7 @@ void DrawRightPanel(float top, float bottom, const ImVec2& displaySize)
                 renderOptions.luminanceTolerance = 3.5f + (0.70f - 3.5f) * protection;
                 ApplyOptionsFromUI(false, true);
             }
+            ImGui::EndDisabled();
 
             ImGui::Spacing();
             ImGui::SeparatorText("LIGHTING");
@@ -809,16 +821,20 @@ void DrawRightPanel(float top, float bottom, const ImVec2& displaySize)
             {
                 bool advancedChanged = false;
                 advancedChanged |= ImGui::SliderInt("Samples per moving frame", &renderOptions.temporalSpp, 1, 8);
+                ImGui::BeginDisabled(!motionAware);
                 advancedChanged |= ImGui::SliderFloat("Depth threshold", &renderOptions.depthThreshold, 0.001f, 0.08f, "%.3f");
                 advancedChanged |= ImGui::SliderFloat("Normal threshold", &renderOptions.normalThreshold, 0.50f, 0.99f, "%.2f");
                 advancedChanged |= ImGui::SliderFloat("Luminance tolerance", &renderOptions.luminanceTolerance, 0.25f, 5.0f, "%.2f");
                 advancedChanged |= ImGui::SliderFloat("Motion decay", &renderOptions.motionDecay, 0.0001f, 0.02f, "%.4f", ImGuiSliderFlags_Logarithmic);
+                ImGui::EndDisabled();
                 if (advancedChanged) ApplyOptionsFromUI(false, true);
+                ImGui::BeginDisabled(renderOptions.temporalMode == 0);
                 if (ImGui::Button("Reset temporal history", ImVec2(-1.0f, 0.0f)))
                 {
                     renderer->ResetTemporalHistory();
                     SetUIStatus("Temporal history reset");
                 }
+                ImGui::EndDisabled();
             }
     ImGui::PopItemWidth();
     ImGui::End();
